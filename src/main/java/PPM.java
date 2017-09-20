@@ -8,9 +8,9 @@ public class PPM {
   static final int IS_GREYMAP    = 1;
   static final int IS_FULLCOLOUR = 2;
   
-  private byte[] red, green, blue;                 // the image (as 8 bit colour chanels)
-  private int width, height;                       // image dimensions (in pixels)
-  private int type;                                // the image type
+  public byte[] red, green, blue;                 // the image (as 8 bit colour chanels)
+  public int width, height;                       // image dimensions (in pixels)
+  public int type;                                // the image type
   
   PPM(String filename) throws IOException { // constructor which takes a filename
     this(new FileInputStream(filename));
@@ -44,7 +44,9 @@ public class PPM {
 
       throw new IOException("Unsupported PPM file type");
   }
-  
+
+
+
   PPM(Image im) throws IOException { // constructor that takes an image
     this.type = IS_FULLCOLOUR;
     this.width = im.getWidth(null);
@@ -223,7 +225,8 @@ public class PPM {
     public static void main(String[] args)
     {
         try {
-            PPM ppm = new PPM(args[0]);
+            PPM ppm = new PPM("/Users/vincenzo.pirrone/dev/maze-rd/maze1.ppm");
+             System.out.println(ppm.width);
             
             /// ... 
             
