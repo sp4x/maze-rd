@@ -237,5 +237,27 @@ public class PPM {
             e.printStackTrace();
         }
     }
+
+
+    static void turnRed(Node p) {
+
+    }
+
+    static boolean dfs(Node current) {
+        current.visited = true;
+        for (Node node: current.edges) {
+            if (node.isExit) {
+                turnRed(node);
+                return true;
+            } else if(!node.visited) {
+                boolean rightPath = dfs(node);
+                if (rightPath) {
+                    turnRed(node);
+                }
+                return rightPath;
+            }
+        }
+        return false;
+    }
 }
 
